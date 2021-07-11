@@ -1,0 +1,38 @@
+.rqe__movie-details {
+  position: relative;
+  height: 100%;
+}
+
+.rqe__movie-details-header {
+  display: flex;
+  align-items: center;
+}
+
+.rqe__movie-details-header h1 {
+  margin-left: 16px;
+}
+
+div.rqe__movie-details-fetching-loader {
+  position: relative;
+  margin-left: 16px;
+}
+
+.rqe__movie-details-content {
+  display: flex;
+  margin-top: 16px;
+}
+
+.rqe__movie-details-content dl {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  margin-left: 16px;
+  max-width: 768px;
+}
+
+.rqe__movie-details-content dt {
+  font-weight: bold;
+}
+
+.rqe__movie-details-content dd {
+  margin-bottom: 12px;
+}

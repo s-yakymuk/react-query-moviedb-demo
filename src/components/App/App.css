@@ -1,0 +1,9 @@
+.rqe__app {
+  height: 100%;
+  padding-top: 60px;
+}
+
+.rqe__app main {
+  padding: 16px 32px;
+  height: 100%;
+}

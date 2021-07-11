@@ -1,0 +1,13 @@
+.rqe__movies-grid {
+  height: calc(100vh - 260px);
+  width: 100%;
+}
+
+.rqe__movie-title {
+  display: flex;
+  align-items: center;
+}
+
+.rqe__movie-title a {
+  margin-left: 8px;
+}

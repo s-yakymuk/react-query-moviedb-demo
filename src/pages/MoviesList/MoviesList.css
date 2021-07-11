@@ -1,0 +1,21 @@
+.rqe__movies-list {
+  position: relative;
+  height: 100%;
+}
+
+.rqe__movies-list-header {
+  display: flex;
+  align-items: center;
+}
+
+div.rqe__movies-list-fetching-loader {
+  position: relative;
+  margin-left: auto;
+}
+
+.rqe__movies-list-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}

@@ -1,0 +1,52 @@
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rqe__loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  visibility: visible;
+}
+
+.rqe__loader--blocking {
+  z-index: 4;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.rqe__loader--fullscreen {
+  position: fixed;
+  z-index: 200;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.rqe__loader-spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  animation: spin 1s linear infinite;
+  border: 0.15em solid rgba(128, 128, 128, 0.25);
+  border-top-color: rgb(128, 128, 128);
+}
+
+.rqe__loader-spinner-container {
+  display: flex;
+  align-items: center;
+}
+
+.rqe__loader-spinner-container span {
+  margin-left: 16px;
+}
+
+.rqe__loader-spinner--slim {
+  border-width: 0.1em;
+}

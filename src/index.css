@@ -1,0 +1,121 @@
+@import "~antd/dist/antd.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  color: #222324;
+  background: #f4f6fd;
+}
+
+div,
+button,
+input,
+optgroup,
+select,
+textarea,
+pre {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+h1 {
+  margin: 12px 0;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 12px 0;
+  font-size: 29px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+h3 {
+  margin: 12px 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+h4 {
+  margin: 12px 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+::placeholder {
+  color: #b5bdc2;
+}
+
+:-ms-input-placeholder {
+  color: #b5bdc2;
+}
+
+::selection {
+  background-color: #63696f;
+  color: #fff;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f2f3f5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  padding: 2px;
+  background-color: #f2f3f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #dcdcdc;
+}
