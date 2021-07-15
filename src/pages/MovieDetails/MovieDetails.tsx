@@ -23,7 +23,7 @@ const MovieDetails = () => {
   const { data, isLoading, isFetching } = useMovieDetails(movieId);
 
   return (
-    <main className="rqe__movie-details">
+    <article className="rqe__movie-details">
       <Link to={ROUTES.movies}>
         <ArrowLeftOutlined /> Back to movies
       </Link>
@@ -92,7 +92,7 @@ const MovieDetails = () => {
           </div>
         </>
       )}
-    </main>
+    </article>
   );
 };
 

@@ -17,17 +17,20 @@ export interface AccountDetailsResponse {
   name: string;
 }
 
+const getFavoriteMovieIds = (account_id?: number) =>
+  slowGet<FavoriteMoviesResponse>(`account/${account_id}/favorite/movies`).then(
+    (data) => data.results.map((m) => m.id)
+  );
+
 export const useFavoriteMovies = () => {
   const account_id = useAccountId();
 
   return useQuery(
     FAVORITE_MOVIES_QUERY_KEY,
-    () =>
-      slowGet<FavoriteMoviesResponse>(
-        `account/${account_id}/favorite/movies`
-      ).then((data) => data.results.map((m) => m.id)),
+    () => getFavoriteMovieIds(account_id),
     {
       enabled: !!account_id,
+      staleTime: 10 * 60 * 1000,
     }
   );
 };

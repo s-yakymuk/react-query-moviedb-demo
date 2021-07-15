@@ -3,6 +3,8 @@ import { Redirect, Route, Switch } from "react-router";
 
 import Header from "components/Header";
 import Loader from "components/Loader";
+
+import About from "pages/About";
 import MoviesList from "pages/MoviesList";
 import MovieDetails from "pages/MovieDetails";
 
@@ -37,7 +39,7 @@ const App = () => {
             <MovieDetails />
           </Route>
           <Route path={ROUTES.about}>
-            <h1>About</h1>
+            <About />
           </Route>
           <Redirect to={ROUTES.movies} />
         </Switch>

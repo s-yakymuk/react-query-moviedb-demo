@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useDebounce } from "use-debounce/lib";
+import { useDebouncedCallback } from "use-debounce/lib";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-
-import useUpdateEffect from "hooks/useUpdateEffect";
 
 import "./SearchInput.css";
 
@@ -15,11 +13,7 @@ interface Props {
 const SearchInput = (props: Props) => {
   const { initialValue = "", onChange } = props;
   const [value, setValue] = useState(initialValue);
-  const [debouncedValue] = useDebounce(value, 500);
-
-  useUpdateEffect(() => {
-    onChange(debouncedValue);
-  }, [debouncedValue]);
+  const onChangeDebounced = useDebouncedCallback(onChange, 500);
 
   return (
     <Input
@@ -28,7 +22,10 @@ const SearchInput = (props: Props) => {
       placeholder="Search for movies"
       value={value}
       prefix={<SearchOutlined />}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={(e) => {
+        setValue(e.target.value);
+        onChangeDebounced(e.target.value);
+      }}
     />
   );
 };
