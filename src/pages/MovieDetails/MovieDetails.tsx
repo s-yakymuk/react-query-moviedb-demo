@@ -1,13 +1,12 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
-import Loader from "components/Loader";
-import FavoriteButton from "components/FavoriteButton";
+import Loader from "@/components/Loader";
+import FavoriteButton from "@/components/FavoriteButton";
 
-import useMovieDetails from "hooks/useMovieDetails";
+import useMovieDetails from "@/hooks/useMovieDetails";
 
-import { ROUTES } from "consts";
+import { ROUTES } from "@/consts";
 
 import "./MovieDetails.css";
 

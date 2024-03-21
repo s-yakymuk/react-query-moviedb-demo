@@ -1,7 +1,8 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import { slowGet } from "api";
-import { GenreModel } from "models";
+import { slowGet } from "@/api";
+
+import { GenreModel } from "@/models";
 
 export interface MovieGenresResponse {
   genres: GenreModel[];
@@ -17,7 +18,9 @@ const getNormalizedMovieGenres = () =>
   }));
 
 export const useMovieGenres = () => {
-  return useQuery("movieGenres", getNormalizedMovieGenres, {
+  return useQuery({
+    queryKey: ["movieGenres"],
+    queryFn: getNormalizedMovieGenres,
     staleTime: Infinity,
   });
 };

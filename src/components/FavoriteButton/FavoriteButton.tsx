@@ -1,9 +1,8 @@
-import React from "react";
 import { Button } from "antd";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 
-import useMarkFavorite from "hooks/useMarkFavorite";
-import useFavoriteMovies from "hooks/useFavoriteMovies";
+import useMarkFavorite from "@/hooks/useMarkFavorite";
+import useFavoriteMovies from "@/hooks/useFavoriteMovies";
 
 interface Props {
   id: number;
@@ -16,7 +15,7 @@ const FavoriteButton = ({ id }: Props) => {
 
   return (
     <Button
-      type="ghost"
+      type="text"
       shape="circle"
       disabled={isLoading}
       icon={isFavorite ? <StarFilled /> : <StarOutlined />}

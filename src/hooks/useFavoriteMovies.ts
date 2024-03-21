@@ -1,12 +1,12 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import useAccountId from "hooks/useAccountId";
+import useAccountId from "@/hooks/useAccountId";
 
-import { slowGet } from "api";
+import { slowGet } from "@/api";
 
-import { MovieModel } from "models";
+import { MovieModel } from "@/models";
 
-import { FAVORITE_MOVIES_QUERY_KEY } from "consts";
+import { FAVORITE_MOVIES_QUERY_KEY } from "@/consts";
 
 export interface FavoriteMoviesResponse {
   results: MovieModel[];
@@ -25,14 +25,12 @@ const getFavoriteMovieIds = (account_id?: number) =>
 export const useFavoriteMovies = () => {
   const account_id = useAccountId();
 
-  return useQuery(
-    FAVORITE_MOVIES_QUERY_KEY,
-    () => getFavoriteMovieIds(account_id),
-    {
-      enabled: !!account_id,
-      staleTime: 10 * 60 * 1000,
-    }
-  );
+  return useQuery({
+    queryKey: FAVORITE_MOVIES_QUERY_KEY,
+    queryFn: () => getFavoriteMovieIds(account_id),
+    enabled: !!account_id,
+    staleTime: 10 * 60 * 1000,
+  });
 };
 
 export default useFavoriteMovies;

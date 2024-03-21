@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDebouncedCallback } from "use-debounce/lib";
+import { useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 

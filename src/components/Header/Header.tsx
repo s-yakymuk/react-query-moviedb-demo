@@ -1,8 +1,8 @@
-import React from "react";
+import classnames from "classnames";
 import { Link, NavLink } from "react-router-dom";
 
-import LOGO_URL from "assets/images/logo.png";
-import { ROUTES } from "consts";
+import LOGO_URL from "@/assets/logo.png";
+import { ROUTES } from "@/consts";
 
 import "./Header.css";
 
@@ -20,8 +20,12 @@ const Header = () => {
         <li>
           <NavLink
             to={ROUTES.movies}
-            className="rqe-header__link"
-            activeClassName="rqe-header__link--active"
+            className={({ isActive }) =>
+              classnames(
+                "rqe-header__link",
+                isActive && "rqe-header__link--active"
+              )
+            }
           >
             Movies
           </NavLink>
@@ -29,8 +33,12 @@ const Header = () => {
         <li>
           <NavLink
             to={ROUTES.about}
-            className="rqe-header__link"
-            activeClassName="rqe-header__link--active"
+            className={({ isActive }) =>
+              classnames(
+                "rqe-header__link",
+                isActive && "rqe-header__link--active"
+              )
+            }
           >
             About
           </NavLink>

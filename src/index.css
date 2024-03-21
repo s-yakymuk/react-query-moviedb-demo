@@ -1,4 +1,3 @@
-@import "~antd/dist/antd.css";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap");
 
 html {
@@ -78,10 +77,6 @@ input:focus {
 
 input:-moz-ui-invalid {
   box-shadow: none;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,

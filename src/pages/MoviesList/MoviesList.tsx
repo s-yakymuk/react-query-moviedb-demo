@@ -1,15 +1,14 @@
-import React from "react";
 import { Pagination } from "antd";
 
-import Loader from "components/Loader";
-import MoviesGrid from "components/MoviesGrid";
-import SearchInput from "components/SearchInput";
+import Loader from "@/components/Loader";
+import MoviesGrid from "@/components/MoviesGrid";
+import SearchInput from "@/components/SearchInput";
 
-import useStorage from "hooks/useStorage";
-import useFavoriteMovies from "hooks/useFavoriteMovies";
-import useMoviesList, { MoviesListParams } from "hooks/useMoviesList";
+import useStorage from "@/hooks/useStorage";
+import useFavoriteMovies from "@/hooks/useFavoriteMovies";
+import useMoviesList, { MoviesListParams } from "@/hooks/useMoviesList";
 
-import { PAGE_SIZE } from "consts";
+import { PAGE_SIZE } from "@/consts";
 
 import "./MoviesList.css";
 

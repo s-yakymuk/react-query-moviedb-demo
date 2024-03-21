@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./NotAuthenticated.css";
 
 interface Props {
@@ -13,11 +11,11 @@ const NotAuthenticated = (props: Props) => {
     <div className="rqe__no-auth">
       <p>Your MovieDB credentials are missing or incorrect.</p>
       <p>
-        Provide them via environment variables - REACT_APP_USERNAME,
-        REACT_APP_PASSWORD
+        Provide them via environment variables in <code>.env.local</code> file -
+        VITE_MOVIE_DB_USERNAME, VITE_MOVIE_DB_PASSWORD
       </p>
       <p>
-        If you do'nt have an account - please register{" "}
+        If you don't have an account - please register{" "}
         <a
           href="https://www.themoviedb.org/signup"
           target="_blank"

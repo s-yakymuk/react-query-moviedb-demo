@@ -1,7 +1,7 @@
-import { QueryKey, useQuery } from "react-query";
+import { QueryKey, useQuery, keepPreviousData } from "@tanstack/react-query";
 
-import { slowGet } from "api";
-import { MovieModel } from "models";
+import { slowGet } from "@/api";
+import { MovieModel } from "@/models";
 
 export interface MoviesListParams {
   page?: number;
@@ -19,17 +19,15 @@ export const useMoviesList = (params: MoviesListParams) => {
   const isSearchQuery = !!params.query;
   const queryKey: QueryKey = ["movies", params];
 
-  return useQuery(
+  return useQuery({
     queryKey,
-    () =>
+    queryFn: () =>
       slowGet<MoviesListResponse>(
         `${isSearchQuery ? "search" : "discover"}/movie`,
         { params }
       ),
-    {
-      keepPreviousData: true,
-    }
-  );
+    placeholderData: keepPreviousData,
+  });
 };
 
 export default useMoviesList;

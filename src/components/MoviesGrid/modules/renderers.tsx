@@ -1,14 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { ICellRendererParams } from "@ag-grid-community/core";
+import { ICellRendererParams } from "ag-grid-community";
 
-import FavoriteButton from "components/FavoriteButton";
+import FavoriteButton from "@/components/FavoriteButton";
 
-import useMovieGenres from "hooks/useMovieGenres";
+import useMovieGenres from "@/hooks/useMovieGenres";
 
-import { MovieModel } from "models";
+import { MovieModel } from "@/models";
 
-import { ROUTES } from "consts";
+import { ROUTES } from "@/consts";
 
 interface Props extends ICellRendererParams {
   data: MovieModel;
@@ -54,12 +53,3 @@ export const GenresRenderer = ({ data }: Props) => {
 export const FavoriteRenderer = ({ data }: Props) => {
   return <FavoriteButton id={data.id} />;
 };
-
-const renderers = {
-  titleRenderer: TitleRenderer,
-  ratingRenderer: RatingRenderer,
-  genresRenderer: GenresRenderer,
-  favoriteRenderer: FavoriteRenderer,
-};
-
-export default renderers;

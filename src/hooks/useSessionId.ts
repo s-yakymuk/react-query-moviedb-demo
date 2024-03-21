@@ -1,6 +1,6 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import api from "api";
+import api from "@/api";
 
 interface GetRequestTokenResponse {
   request_token: string;
@@ -18,8 +18,8 @@ const getSessionId = async () => {
 
     await api.post("authentication/token/validate_with_login", {
       request_token,
-      username: process.env.REACT_APP_USERNAME,
-      password: process.env.REACT_APP_PASSWORD,
+      username: import.meta.env.VITE_MOVIE_DB_USERNAME,
+      password: import.meta.env.VITE_MOVIE_DB_PASSWORD,
     });
 
     const {
@@ -27,6 +27,14 @@ const getSessionId = async () => {
     } = await api.post<CreateSessionResponse>("authentication/session/new", {
       request_token,
     });
+
+    api.interceptors.request.use((config) => ({
+      ...config,
+      params: {
+        ...config.params,
+        session_id,
+      },
+    }));
 
     return session_id;
   } catch (err) {
@@ -38,17 +46,10 @@ const getSessionId = async () => {
 };
 
 export const useSessionId = () => {
-  return useQuery<string, string>("sessionId", getSessionId, {
+  return useQuery<string, string>({
+    queryKey: ["sessionId"],
+    queryFn: getSessionId,
     staleTime: Infinity,
-    onSuccess: (session_id) => {
-      api.interceptors.request.use((config) => ({
-        ...config,
-        params: {
-          ...config.params,
-          session_id,
-        },
-      }));
-    },
   });
 };
 
