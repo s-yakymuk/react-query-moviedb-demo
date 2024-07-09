@@ -1,0 +1,29 @@
+{
+  "reviews": [
+    {
+      "id": "1",
+      "createdDate": "2024-04-28T12:39:50.368Z",
+      "authorName": "Denis Villeneuve",
+      "title": "Masterpiece",
+      "text": "One of the best films I've ever seen!",
+      "rating": 8,
+      "movieId": 693134
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "createdDate": "2024-04-28T13:44:22.368Z",
+      "authorName": "Paul Atreides",
+      "text": "100%!",
+      "reviewId": "1"
+    },
+    {
+      "id": "2",
+      "createdDate": "2024-04-29T05:03:02.322Z",
+      "authorName": "Baron",
+      "text": "Nah, kinda mid tbh",
+      "reviewId": "1"
+    }
+  ]
+}

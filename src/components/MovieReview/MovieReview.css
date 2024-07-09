@@ -1,0 +1,15 @@
+.rqe__movie-review {
+  position: relative;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+.rqe__movie-review h3 {
+  margin: 8px 0 2px;
+}
+
+.rqe__movie-review-author {
+  font-size: 12px;
+}

@@ -1,0 +1,13 @@
+.rqe__movie-reviews {
+  position: relative;
+  min-height: 120px;
+  margin: 32px 0;
+  padding-bottom: 32px;
+}
+
+.rqe__movie-reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}

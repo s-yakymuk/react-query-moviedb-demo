@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
 import Loader from "@/components/Loader";
+import MovieReviews from "@/components/MovieReviews";
 import FavoriteButton from "@/components/FavoriteButton";
 
 import useMovieDetails from "@/hooks/useMovieDetails";
@@ -89,6 +90,7 @@ const MovieDetails = () => {
               </dl>
             </section>
           </div>
+          <MovieReviews movieId={movieId} />
         </>
       )}
     </article>

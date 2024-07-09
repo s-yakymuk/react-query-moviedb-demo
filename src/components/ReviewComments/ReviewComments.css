@@ -1,0 +1,17 @@
+.rqe__review-comments {
+  position: relative;
+  padding: 24px;
+}
+
+.rqe__review-comment {
+  border-bottom: 1px solid #ccc;
+  margin-top: 12px;
+}
+
+.rqe__review-comment h4 {
+  margin: 8px 0 2px;
+}
+
+.rqe__review-comment-author {
+  font-size: 12px;
+}
