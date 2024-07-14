@@ -3,10 +3,7 @@ import { QueryKey, useQuery, keepPreviousData } from "@tanstack/react-query";
 import { slowGet } from "@/api";
 import { MovieModel } from "@/models";
 
-export interface MoviesListParams {
-  page?: number;
-  query?: string;
-}
+import { MoviesListParams } from "./useMoviesListParams";
 
 export interface MoviesListResponse {
   page: number;

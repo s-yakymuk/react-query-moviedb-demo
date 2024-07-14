@@ -4,27 +4,16 @@ import Loader from "@/components/Loader";
 import MoviesGrid from "@/components/MoviesGrid";
 import SearchInput from "@/components/SearchInput";
 
-import useStorage from "@/hooks/useStorage";
 import useFavoriteMovies from "@/hooks/useFavoriteMovies";
-import useMoviesList, { MoviesListParams } from "@/hooks/useMoviesList";
+import useMoviesList from "@/hooks/useMoviesList";
+import useMoviesListParams from "@/hooks/useMoviesListParams";
 
 import { PAGE_SIZE } from "@/consts";
 
 import "./MoviesList.css";
 
 const MoviesList = () => {
-  const [params, setParams] = useStorage<MoviesListParams>(
-    "movieListParams",
-    { page: 1 },
-    true
-  );
-  const updateParams = (update: Partial<MoviesListParams>) => {
-    setParams((currentParams) => ({
-      ...currentParams,
-      ...update,
-    }));
-  };
-
+  const { params, updateParams } = useMoviesListParams();
   const { data, isLoading, isFetching } = useMoviesList(params);
 
   useFavoriteMovies(); // just prefetch it, no use for data here
@@ -44,7 +33,9 @@ const MoviesList = () => {
       <div className="rqe__movies-list-controls">
         <SearchInput
           initialValue={params.query}
-          onChange={(query) => updateParams({ query, page: 1 })}
+          onChange={(query) => {
+            updateParams({ query, page: 1 });
+          }}
         />
         {!!data?.total_results && data.total_results > PAGE_SIZE && (
           <Pagination
