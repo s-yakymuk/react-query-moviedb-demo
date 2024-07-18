@@ -8,9 +8,11 @@ import {
 } from "@ant-design/icons";
 
 import { ReviewModel } from "@/models";
+import { usePrefetchReviewComments } from "@/hooks/useReviewComments";
+
+import ReviewComments from "../ReviewComments";
 
 import "./MovieReview.css";
-import ReviewComments from "../ReviewComments";
 
 interface Props {
   review: ReviewModel;
@@ -18,6 +20,7 @@ interface Props {
 
 const MovieReview = ({ review }: Props) => {
   const [areCommentsOpen, setAreCommentsOpen] = useState(false);
+  const prefetchReviewComments = usePrefetchReviewComments();
 
   return (
     <section className="rqe__movie-review">
@@ -32,6 +35,7 @@ const MovieReview = ({ review }: Props) => {
       <Button
         type="text"
         onClick={() => setAreCommentsOpen(!areCommentsOpen)}
+        onMouseEnter={() => prefetchReviewComments(review.id)}
         icon={areCommentsOpen ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
       >
         {areCommentsOpen ? "Hide" : "Show"} Comments
