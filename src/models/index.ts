@@ -5,5 +5,5 @@ export type {
   ProductionCompanyModel,
   ProductionCountryModel,
 } from "./movieDetails";
-export type { ReviewModel } from "./review";
+export type { ReviewModel, DraftReviewModel } from "./review";
 export type { CommentModel } from "./comment";

@@ -14,7 +14,7 @@ axiosMovieDbInstance.interceptors.request.use((config) => ({
   },
 }));
 
-const axiosJsonServerInstance = axios.create({
+export const axiosJsonServerInstance = axios.create({
   baseURL: "http://localhost:3000/",
 });
 
