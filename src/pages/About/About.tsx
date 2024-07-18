@@ -19,7 +19,7 @@ const About = () => {
         All of the queries will be in <code>inactive</code> state, while you are
         on this page
       </p>
-      <p>Serhii Yakymuk © 2021</p>
+      <p>Serhii Yakymuk © 2021-2024</p>
     </article>
   );
 };
