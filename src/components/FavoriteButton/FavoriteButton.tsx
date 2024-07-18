@@ -19,6 +19,7 @@ const FavoriteButton = ({ id }: Props) => {
       shape="circle"
       disabled={isLoading}
       icon={isFavorite ? <StarFilled /> : <StarOutlined />}
+      aria-label={`${isFavorite ? "Unmark" : "Mark"} as Favorite`}
       onClick={() => markFavorite({ media_id: id, favorite: !isFavorite })}
     />
   );
