@@ -7,11 +7,10 @@ import { CommentModel } from "@/models";
 const getReviewComments = (reviewId?: string) =>
   jsonServerSlowGet<CommentModel[]>(`comments?reviewId=${reviewId}`);
 
-export const useReviewComments = (reviewId?: string) => 
+export const useReviewComments = (reviewId?: string) =>
   useQuery({
     queryKey: ["reviewComments", reviewId],
-    queryFn: () =>
-      getReviewComments(reviewId),
+    queryFn: () => getReviewComments(reviewId),
     enabled: !!reviewId,
   });
 
@@ -20,12 +19,11 @@ export const usePrefetchReviewComments = () => {
   const prefetchReviewComments = async (reviewId: string) => {
     await queryClient.prefetchQuery({
       queryKey: ["reviewComments", reviewId],
-      queryFn: () =>
-        getReviewComments(reviewId),
-    })
-  }
+      queryFn: () => getReviewComments(reviewId),
+    });
+  };
 
   return prefetchReviewComments;
-}
+};
 
 export default useReviewComments;
