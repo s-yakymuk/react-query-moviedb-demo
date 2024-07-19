@@ -31,7 +31,7 @@ const MovieDetails = () => {
       {!!data && (
         <>
           <div className="rqe__movie-details-header">
-            <FavoriteButton id={data.id} />
+            <FavoriteButton movie={data} />
             <h1>{data.title}</h1>
             {!isLoading && isFetching && (
               <Loader

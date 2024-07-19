@@ -755,4 +755,7 @@ export const handlers = [
       });
     }
   ),
+  http.post(" https://api.themoviedb.org/3/account/10711564/favorite", () => {
+    return HttpResponse.json({});
+  }),
 ];

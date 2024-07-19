@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { create } from "zustand";
-import { NumberParam, StringParam, useQueryParams, withDefault } from "use-query-params";
+import {
+  NumberParam,
+  StringParam,
+  useQueryParams,
+  withDefault,
+} from "use-query-params";
 
 import useStorage from "./useStorage";
 
@@ -25,7 +30,7 @@ export const useStateMoviesListParams = () => {
   };
 
   return { params, updateParams };
-}
+};
 
 // 2. Session Storage
 export const useStorageMoviesListParams = () => {
@@ -42,38 +47,41 @@ export const useStorageMoviesListParams = () => {
   };
 
   return { params, updateParams };
-}
+};
 
 // 3. URL
 export const useUrlMoviesListParams = () => {
   const [params, setParams] = useQueryParams({
     page: withDefault(NumberParam, 1),
-    query: StringParam
+    query: StringParam,
   });
   const updateParams = (update: Partial<MoviesListParams>) => {
-    setParams((currentParams) => ({
-      ...currentParams,
-      ...update,
-    }), 'pushIn');
+    setParams(
+      (currentParams) => ({
+        ...currentParams,
+        ...update,
+      }),
+      "pushIn"
+    );
   };
 
   return { params: params as MoviesListParams, updateParams };
-}
+};
 
 // 4. Zustand
 const useMoviesListParamsStore = create<UseMoviesListParamsResponse>((set) => ({
   params: { page: 1 },
-  updateParams: (update) => set(state => ({ params: { ...state.params, ...update } }))
+  updateParams: (update) =>
+    set((state) => ({ params: { ...state.params, ...update } })),
 }));
 
 export const useZustandMoviesListParams = () => {
   return useMoviesListParamsStore();
-}
-
+};
 
 export const useMoviesListParams = (): UseMoviesListParamsResponse => {
   // You can replace hook implementation with one of the 4 options above
-  return useZustandMoviesListParams();
+  return useUrlMoviesListParams();
 };
 
 export default useMoviesListParams;

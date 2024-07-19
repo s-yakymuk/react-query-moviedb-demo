@@ -4,14 +4,16 @@ import { StarFilled, StarOutlined } from "@ant-design/icons";
 import useMarkFavorite from "@/hooks/useMarkFavorite";
 import useFavoriteMovies from "@/hooks/useFavoriteMovies";
 
+import { MovieDetailsModel, MovieModel } from "@/models";
+
 interface Props {
-  id: number;
+  movie: MovieModel | MovieDetailsModel;
 }
 
-const FavoriteButton = ({ id }: Props) => {
+const FavoriteButton = ({ movie }: Props) => {
   const { mutate: markFavorite } = useMarkFavorite();
   const { data: movieIds = [], isLoading } = useFavoriteMovies();
-  const isFavorite = movieIds.includes(id);
+  const isFavorite = movieIds.includes(movie.id);
 
   return (
     <Button
@@ -19,8 +21,12 @@ const FavoriteButton = ({ id }: Props) => {
       shape="circle"
       disabled={isLoading}
       icon={isFavorite ? <StarFilled /> : <StarOutlined />}
-      aria-label={`${isFavorite ? "Unmark" : "Mark"} as Favorite`}
-      onClick={() => markFavorite({ media_id: id, favorite: !isFavorite })}
+      aria-label={`${isFavorite ? "Unmark" : "Mark"} ${
+        movie.title
+      } as Favorite`}
+      onClick={() =>
+        markFavorite({ media_id: movie.id, favorite: !isFavorite })
+      }
     />
   );
 };

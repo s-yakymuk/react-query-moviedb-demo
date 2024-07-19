@@ -29,8 +29,6 @@ const MovieReviews = ({ movieId, isOpen, onClose }: Props) => {
     }
   }, [isOpen, movieId, form]);
 
-  console.log(form.getFieldsValue());
-
   return (
     <Modal
       title="Add Movie Review"

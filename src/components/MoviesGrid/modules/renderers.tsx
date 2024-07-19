@@ -51,5 +51,5 @@ export const GenresRenderer = ({ data }: Props) => {
 };
 
 export const FavoriteRenderer = ({ data }: Props) => {
-  return <FavoriteButton id={data.id} />;
+  return <FavoriteButton movie={data} />;
 };
